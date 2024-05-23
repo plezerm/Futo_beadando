@@ -103,7 +103,7 @@ public class DataLoader implements CommandLineRunner {
                 ResultEntity result = new ResultEntity();
                 result.setRunner(runnerRepository.findById((long)runner).orElse(null));
                 result.setCompetition(competitionRepository.findById((long)competition).orElse(null));
-                result.setResult(time/60000);    //eredetileg a rövidebb versenyekre tekintettel ms-ben tároltam az időt, itt lesz perc
+                result.setResult(time/60000);    //ms-ben tároltam az időt, itt lesz perc
                 resultRepository.save(result);
             }
 
