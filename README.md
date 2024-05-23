@@ -1,2 +1,3 @@
-Kedves Áron,
-Hát kihívásokkal teli a feladat.
+Tisztelt Tnár úr,
+
+Ezek az első feltöltések
