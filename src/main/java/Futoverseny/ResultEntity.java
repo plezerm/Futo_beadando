@@ -3,7 +3,7 @@ package Futoverseny;
 import jakarta.persistence.*;
 import java.time.Duration;
 
-@Entity
+@Entity 
 public class ResultEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class ResultEntity {
     private long result;
     private String formattedResult;
 
-    public ResultEntity(RunnerEntity runner, CompetitionEntity competition, long result) {
+    public ResultEntity(RunnerEntity runner, CompetitionEntity competition, long result) {  
         this.runner = runner;
         this.competition = competition;
         this.result = result;
