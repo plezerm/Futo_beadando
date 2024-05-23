@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>G9PGBI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>A futóversenyek listája</h1>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+           <tr>
+                <th>ID</th>
+                <th>A verseny neve</th>
+                <th>Hossza (km)</th>
+                <th>Kiválaszt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="competitionEntry : ${competitions}">
+                <td th:text="${competitionEntry.compId}"></td>
+                <td th:text="${competitionEntry.compName}"></td>
+                <td th:text="${competitionEntry.length}"></td>
+                <td>
+                    <a th:href="@{/comp/{id}(id=${competitionEntry.compId})}" class="btn btn-primary">Katt</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <a href="/addcompetition" class="btn btn-primary">Új verseny hozzáadása</a>
+    <a href="/" class="btn btn-primary">Vissza a kezdőoldalra</a>
+</div>
+</body>
+</html>

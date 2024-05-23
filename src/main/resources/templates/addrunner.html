@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>G9PGBI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Új futó felvitele az adatbázisba</h2>
+    <p th:if="${error}" th:text="${error}" class="alert alert-danger"></p>
+    <form th:action="@{/addrunner}" th:object="${runner}" method="post">
+        <div class="form-group">
+            <label for="runnerName">A futó neve</label>
+            <input type="text" th:field="*{runnerName}" class="form-control" id="runnerName" placeholder="Írd ide a nevét">
+        </div>
+        <div class="form-group">
+            <label for="age">Életkora</label>
+            <input type="text" th:field="*{age}" class="form-control" id="age" placeholder="Ide a korát">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select th:field="*{gender}" class="form-control" id="gender">
+                <option th:each="genderType, iterStat : ${runner.genderTypes}" th:value="${iterStat.index}" th:text="${genderType}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">OK</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>G9PGBI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>A futók</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Kor</th>
+            <th>Nem</th>
+            <th>Kiválaszt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="runnerEntry : ${runners}">
+            <tr>
+                <td th:text="${runnerEntry.runnerId}"></td>
+                <td th:text="${runnerEntry.runnerName}"></td>
+                <td th:text="${runnerEntry.age}"></td>
+                <td th:text="${runnerEntry.getGenderName}"></td>
+                <td>
+                    <a th:href="@{/runner/{id}(id=${runnerEntry.runnerId})}" class="btn btn-primary">Katt</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <h3>A futók átlagéletkora: <b th:text="${averageAge}"></b> years</h3>
+    <a href="/addrunner" class="btn btn-primary">Új futó hozzáadása</a>
+    <a href="/" class="btn btn-primary">Vissza a kezdőoldalra</a>
+</div>
+</body>
+</html>
