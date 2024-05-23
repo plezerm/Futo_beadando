@@ -45,11 +45,11 @@ public class CompetitionController {
                 for (ResultEntity result : sortedResults) {
                     totalTime += result.getResult();
                 }
-                double average = Math.round(((double) totalTime / sortedResults.size())*100)/100.0; //átlag kerekítése 2 tizedesre
-                model.addAttribute("average", average);                     //és átadása perc, majd óra:perc formátumban
+                double average = Math.round(((double) totalTime / sortedResults.size())*100)/100.0; //átlagolás
+                model.addAttribute("average", average);                     //átlagolás
                 model.addAttribute("averagehhmm", (String.format("%02d óra %02d perc", (int)average / 60, (int)average % 60)));
             } else {
-                model.addAttribute("average", 0);               //ha nincs eredmény, akkor 0 az átlag
+                model.addAttribute("average", 0);               //0 átlag ha nem volt eredmény
                 model.addAttribute("averagehhmm", "00:00");
             }
             model.addAttribute("results", sortedResults);
