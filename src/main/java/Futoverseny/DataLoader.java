@@ -57,10 +57,6 @@ public class DataLoader implements CommandLineRunner {
                 String name = data[0];
                 int age = Integer.parseInt(data[1]);
                 int gender = Integer.parseInt(data[2]);
-//                preparedStatement.setString(1, name);   //az első verzióban a H2 adatbáziskezelőt használtam
-//                preparedStatement.setInt(2, age);       //itt kerültek be az adatok soronként a .csv-fájlokból a fenti SQL-sorral
-//                preparedStatement.setInt(3, gender);    //a Spring Boot + JPA verzióban erre nincs szükség
-//                preparedStatement.executeUpdate();                  //de még benne hagyom
                 RunnerEntity runner = new RunnerEntity();
                 runner.setRunnerName(name);
                 runner.setAge(age);
@@ -84,7 +80,7 @@ public class DataLoader implements CommandLineRunner {
 //                preparedStatement.executeUpdate();
                 CompetitionEntity comp = new CompetitionEntity();
                 comp.setCompName(name);
-                comp.setLength(length/1000);    //a versenyek hosszát km-ben tárolom, de a .csv-fájlban méterben van
+                comp.setLength(length/1000);    //a versenyek hosszát km-ben jelenítem meg, de a .csv-fájlban méterben van
                 competitionRepository.save(comp);
             }
         } catch (IOException | SQLException e) {
