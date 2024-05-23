@@ -25,7 +25,7 @@ public class CompetitionController {
         this.resultRepository = resultRepository;
     }
 
-    @GetMapping("/competitions")    //az összes verseny megjelenítése
+    @GetMapping("/competitions")    //Versenyek megjelenítése
     public String showCompetitions(Model model) {
         model.addAttribute("competitions", competitionRepository.findAll());
         return "competitions";
@@ -37,7 +37,7 @@ public class CompetitionController {
         model.addAttribute("competition", competition);
         if (competition != null) {
             List<ResultEntity> sortedResults = resultRepository.findByCompetition(competition)
-                    .stream()                                                           //az eredmények rendezése növekvő sorrendbe
+                    .stream()                                                           //rendezés növekvő sorrendbe
                     .sorted(Comparator.comparing(ResultEntity::getResult))
                     .collect(Collectors.toList());
             if (!sortedResults.isEmpty()) {
