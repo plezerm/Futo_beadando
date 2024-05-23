@@ -42,8 +42,8 @@ public class DataLoader implements CommandLineRunner {
 
         String projectDir = System.getProperty("user.dir");
         projectDir += "/src/main/resources/csv/";
-        //a versenyek és a futók internetes táblázatokból származnak, az eredmények pedig
-        //véletlengenerátorral készültek (3-4  adattal nem lehetne rendesen tesztelni)
+        //Adatok a csv-be lettek generáltatva, a futók nevei, az életkoruk és a nemük
+        //több adatra volt szükség
         String runnerPath = projectDir+"runners.csv";
         String compPath = projectDir+"competitions.csv";
         String resPath = projectDir+"results.csv";
