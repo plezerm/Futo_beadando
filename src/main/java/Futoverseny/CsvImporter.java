@@ -1,5 +1,3 @@
-//korábbi verzióból származik, a H2 adatbáziskezelőt használja, a mostani Spring Boot + JPA verzióban nincs rá szükség
-
 package Futoverseny;
 
 import java.io.BufferedReader;
@@ -152,39 +150,5 @@ public class CsvImporter {
             return false;
         }
     }
-//    public void dataIntoMemory() {
-//        try (Connection conn = DriverManager.getConnection(jdbcUrl, jdbcUsername, jdbcPassword)) {
-//            Statement stmt = conn.createStatement();
-//
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM runnerdb");
-//            Runner runn = new Runner();
-//            while (rs.next()) {
-//                runn.setId(rs.getInt("ID"));
-//                runn.setName(rs.getString("NAME"));
-//                runn.setAge(rs.getInt("AGE"));
-//                runn.setGender(rs.getInt("GENDER"));
-//                FutoApplication.runners.add(runn);
-//            }
-//            rs = stmt.executeQuery("SELECT * FROM competitiondb");
-//            Competition comp = new Competition();
-//            while (rs.next()) {
-//                comp.setId(rs.getInt("ID"));
-//                comp.setName(rs.getString("NAME"));
-//                comp.setLength(rs.getInt("LENGTH"));
-//                FutoApplication.competitions.add(comp);
-//            }
-//            rs = stmt.executeQuery("SELECT * FROM resultdb");
-//            Result res = new Result();
-//            while (rs.next()) {
-//                res.setRunner(rs.getInt("RUNNER"));
-//                res.setCompetition(rs.getInt("COMPETITION"));
-//                res.setResultInMillisec(rs.getLong("TIME"));
-//                FutoApplication.results.add(res);
-//            }
-//        }
-//        catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 }
