@@ -1,6 +1,8 @@
 package Futoverseny;
 
 import jakarta.persistence.*;
+import Futoverseny.RunnerEntity;
+import Futoverseny.CompetitionEntity;
 import java.time.Duration;
 
 @Entity 
@@ -21,8 +23,11 @@ public class ResultEntity {
         this.runner = runner;
         this.competition = competition;
         this.result = result;
+        this.formattedResult = formatResult(result);
     }
-
+    private String formatResult(long result) {
+        return String.format("%02d:%02d", result / 60, result % 60);
+    }
     public ResultEntity() {
     }
 
@@ -42,8 +47,8 @@ public class ResultEntity {
         return runner;
     }
 
-    public void setRunner(RunnerEntity runner) {
-        this.runner = runner;
+    public void setRunner(RunnerEntity runner) { 
+        this.runner = runner; 
     }
 
     public CompetitionEntity getCompetition() {
